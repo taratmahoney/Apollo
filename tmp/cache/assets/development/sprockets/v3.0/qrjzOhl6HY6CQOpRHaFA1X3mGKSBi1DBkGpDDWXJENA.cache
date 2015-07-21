@@ -1,0 +1,18 @@
+I"ï(function() {
+  $(function() {
+    return $('#pins').imagesLoaded(function() {
+      return $('#pins').masonry({
+        itemSelector: '.box',
+        isFitWidth: true
+      });
+    });
+  });
+
+  $(function() {
+    return $('#post_tag_list').autocomplete({
+      source: ["apollo", "fintech", "hipsum", "Illya", "Ukrainian", "fb", "medium", "startups", "colin", "people", "money", "snape", "harry potter", "drake", "resources", "growth", "customer aquisition", "d"]
+    });
+  });
+
+}).call(this);
+:ET

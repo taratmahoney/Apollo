@@ -1,0 +1,13 @@
+.col-md-6.col-md-offset-3
+    .row
+        .panel.panel-default
+            .panel-heading
+                %h1 Edit Post
+            .panel-body
+                %strong.center Current Image
+                %br/
+                = image_tag @post.image.url(:medium)
+                %br/
+                = render 'form' 
+                = link_to "Cancel", post_path
+    

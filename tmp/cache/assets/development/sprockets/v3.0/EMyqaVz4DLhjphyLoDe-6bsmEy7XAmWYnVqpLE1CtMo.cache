@@ -1,0 +1,16 @@
+I"(function() {
+  $(function() {
+    return $('#pins').imagesLoaded(function() {
+      return $('#pins').masonry({
+        itemSelector: '.box',
+        isFitWidth: true
+      });
+    });
+  });
+
+  $(function() {
+    return $('#posts_tag_list').autocomplete;
+  });
+
+}).call(this);
+:ET
