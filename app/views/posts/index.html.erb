@@ -11,12 +11,13 @@
    
       <div class="box">
          <div class="overlay 
-         <% if post.crowdfundings.present? %>
-            yellow
-          <% elsif post.feedbacks.present? %>
+        
+          <% if post.feedbacks.present? %>
             red
           <% elsif post.ideas.present? %>
             blue
+          <% else %>
+            yellow
           <% end %>
           ">
           </div>
