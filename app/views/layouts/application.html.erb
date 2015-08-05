@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html></html>
+<!-- SO, this runs right away, its compiled, drops the header in, and then YIELDS to the root path-->
+<head>
+  <title>apollo</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <!--Lato Font from google, and the Normalize library for browser compatibility and consistency-->
+  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css"></link>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet"></link>
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:100,200,400,600" rel="stylesheet" type="text/css"></link>
+  <link href="http://fast.fonts.net/jsapi/782e6a4b-8921-4ff2-bbbb-fb130f79971f.js" rel="stylesheet" type="text/css"></link>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <%= link_to image_tag( "HLogoGrey.png"), root_path %>
+      </div>
+      <% if user_signed_in? %>
+       
+        <ul class="navbar-right"> 
+
+              <li>
+              <%= link_to " + New Post", new_post_path %>
+              </li>
+              <li>
+              <%= link_to "Account", edit_user_registration_path %>
+              </li>
+               <li>  
+                <a class="searcher" href="#"><%= image_tag("search.png") %></a>
+              </li>
+        </ul>
+            <div class="search">
+              <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+                <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+                <%= submit_tag "Search" %>
+                <% if @posts.present? == false %>
+                  <p>
+                    There are no posts containing the term(s) 
+                    <%= params[:search] %>
+                  </p>
+                <% end %>
+              <% end %>
+            </div>
+      <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to "Sign in", new_user_session_path %>
+          </li>
+          <li>
+            <%= link_to "Sign up", new_user_registration_path %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </nav>
+  <div class="page-container">
+
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-info"  %>
+    <% end %>
+    <!--these alerts are just for when they need to show up (not all the time, for example when youre already signed in-->
+    <div class="wrapper">
+      <p class="notice">
+        <%= notice %>
+      </p>
+      <p class="alert">
+        <%= alert %>
+      </p>
+    </div>
+    <!-- yields to root path-->
+    <div class="wrapper">
+      <%= yield %>
+    </div>
+
+    <footer>
+      <div class="footer-link-container">
+      <div class="social-icons">
+        <h4> Follow us on social media: </h4> <br/>
+          <%= image_tag("facebook.png")%>  
+          <%= image_tag("twitter.png")%>  
+          <%= image_tag("instagram.png")%>        
+        </div>
+        <%= image_tag("logotri.png") %>     
+        <ul class="sitemap">
+          <li>
+            <%= link_to "Feedback?", "mailto:colin@weareapollo.ca?Subject=Site%20Feedback" %>
+          </li>
+           <% if user_signed_in? %>
+            <li>
+              <%= link_to "Account", edit_user_registration_path %>
+            </li>
+            <li>
+              <%= link_to "Create a new post", new_post_path %>
+            </li>
+          <% else %>
+              <li>
+                <%= link_to "Sign in", new_user_session_path %>
+              </li>
+              <li>
+                <%= link_to "Sign up", new_user_registration_path %>
+              </li>
+          <% end %>
+        </ul>
+      </div>
+    </footer>
+  </div>
+</body>

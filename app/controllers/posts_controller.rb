@@ -22,10 +22,16 @@ class PostsController < ApplicationController
     end
     
     def show
+        @post = Post.find(params[:id])
+
     end
     
     def new
         @post=current_user.posts.build  #builds a new post under the current user profile
+        @post.feedbacks.build
+        @post.ideas.build
+        @post.crowdfundings.build
+        @post.feedbacks.options.build
     end
     
     def create
@@ -57,6 +63,10 @@ class PostsController < ApplicationController
         @post.destroy
         redirect_to root_path
     end
+
+    def choose_type
+
+    end
     
     def upvote
         @post.upvote_by current_user
@@ -70,7 +80,7 @@ class PostsController < ApplicationController
     end
     
     def post_params
-        params.require(:post).permit(:title, :content, :image, :tag_list)
+        params.require(:post).permit(:id, :title, :content, :image, :tag_list, feedbacks_attributes: [:id, :question, :_destroy], crowdfundings_attributes: [:id, :amount, :_destroy], ideas_attributes: [:id, :content, :_destroy])
     end
 end
 

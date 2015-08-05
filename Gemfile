@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+gem 'bourbon'
+gem 'neat'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Active Record
@@ -50,8 +51,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'haml', '~> 4.0.6'
 gem 'simple_form', '~> 3.1.0'
 gem 'devise', '~> 3.5.1'
-gem 'bootstrap-sass', '~> 3.3.5.1'
 gem 'paperclip', '~> 4.3.0'
-gem 'masonry-rails', '~> 0.2.4'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts-as-taggable-on', '~> 3.5.0'
+gem "cocoon"

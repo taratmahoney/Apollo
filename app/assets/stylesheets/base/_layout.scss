@@ -1,0 +1,114 @@
+.page-container {
+    margin-top: $nav-height;
+}
+nav {
+    padding-left: 7%;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+    width: 100%;
+    background-color: white; 
+    box-shadow: 0 1px 2px 0 #2ab4bc;
+    height: $nav-height;
+    font-family: "Source Sans Pro", sans-serif;
+  
+  .navbar-brand {
+        display: inline;
+             img{
+                max-width: 10rem;
+                height:auto;
+              }
+    }
+    input{
+        margin-top: 5%;
+        color: black;
+        letter-spacing: 1.2;
+        border: none;
+        height: 100%;
+        padding: none;
+       
+
+    }
+    input[type="submit"]{
+        //color:#397CAC;
+        // border:1px solid #397CAC;
+        //padding between text and the border, x and y
+        padding: .3em 1em;
+        //curvy corners of button
+        border-radius: 0.2em;
+        //removes the line under the link
+        text-decoration: none;
+        display: inline;
+        padding: none;
+        height: 100%;
+
+    }
+    .search{
+        display: none;
+        color:gray;
+        background-color: white;
+        transition: left 0.5s $ease-out-sine;
+        padding: 5%;
+        height: 100%;
+        width: 100%;
+
+        &.is-clicked {
+            display: block;
+
+        }
+    }
+}
+
+.navbar-right {
+    display: inline-block;
+    padding: 2%;
+    float: right;
+    overflow: hidden;
+}
+
+nav li { 
+    display: inline;
+    padding-right: 10%;
+    font-size: 1.3em;
+}
+
+.searcher img {
+    width: 15px;
+}
+
+footer {
+    background-color: $red;
+    padding: 5% 10%;
+    color: white;
+    overflow: hidden;
+    margin-top: 3%;
+    width: 100%;
+}
+
+footer img {
+    float: left;
+    width: 5%;
+}
+
+footer .sitemap {
+    float: right;
+
+}
+footer h4{
+    color: white;
+}
+
+.social-icons{
+    float: right;
+    padding-left: 5%;
+}
+
+.social-icons img {
+    width: 30px;
+    padding-right: 10px;
+}
+.sitemap li a{
+    color: white;
+    font-weight: bold;
+}
+

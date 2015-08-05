@@ -1,0 +1,211 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.box {
+    position: relative;
+    margin-bottom: 10px;
+    
+    @include media($large-screen-up){
+    display: inline-block;
+    }
+}
+
+.post-image img{
+    width: 100%;
+}
+
+.overlay{
+    height: 20px;
+    z-index: 100;
+    position: relative;
+}
+.red {
+    background-color: $red;
+    button {
+    margin-top: 10px;
+  }
+}
+
+.blue{
+ background-color: $blue;
+ button {
+ margin-top: 10px;
+}
+}
+
+.yellow {
+    background-color: $yellow;
+   button {
+    margin-top: 10px;
+  }
+}
+
+.dark-blue {
+  background-color: darken($action-color, 15)
+}
+
+
+.panel-body{
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(80, 86, 82, 0.41);
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding-left: 10px;
+  padding-top: 30%;
+  font-size: 1.5em;
+  color: white;
+  text-align: center;
+
+    &:hover {
+    background-color: none;
+    color: #fff;
+    }
+}
+
+.box {
+   @include media($medium-screen-only) {
+    @include span-columns(4);
+    @include omega(2n);
+   }
+ }
+
+.box {
+  @include media($large-screen-up) {
+  @include span-columns(4);
+  @include omega(3n);
+ }
+}
+
+.title a {
+    color: white;
+    font-weight: 700;
+
+    &:hover,
+    &:focus {
+        color: $light-gray;
+    }
+}
+.details {
+    display: none;
+
+     &:hover {
+        display: block;
+    }
+}
+
+
+.filter-container {
+  text-align: center;
+  padding: 5% 3% 2% 3%;
+
+}
+
+.filters li {
+  display: inline;
+  text-decoration: underline;
+  font-weight: bold;
+  padding: 2%;
+}
+
+.posts {
+  padding: 3%;
+}
+
+button {
+  margin-top: 10px;
+}
+.buttons button {
+  color: white;
+  font-family: $heading-font-family;
+  text-transform: uppercase;
+}
+
+.feedback {
+  display: none;
+  -webkit-transition: all 1s ease-in;
+  -moz-transition: all 1s ease-in;
+  -ms-transition: all 1s ease-in;
+  -o-transition: all 1s ease-in;
+  transition: all 1s ease-in;
+
+   &.clicked{
+    display: block;
+  }
+}
+
+.crowdfunding {
+  display: none;
+  -webkit-transition: all 1s ease-in;
+  -moz-transition: all 1s ease-in;
+  -ms-transition: all 1s ease-in;
+  -o-transition: all 1s ease-in;
+  transition: all 1s ease-in;
+
+   &.clicked{
+    display: block;
+   }
+
+}
+
+.idea {
+  display: none;
+    -webkit-transition: all 1s ease-in;
+  -moz-transition: all 1s ease-in;
+  -ms-transition: all 1s ease-in;
+  -o-transition: all 1s ease-in;
+  transition: all 1s ease-in;
+
+   &.clicked{
+   display: block;
+ }
+}
+
+.post-page-body{
+  padding: 3% 15%;
+}
+
+   
+.post-image{
+    height: 15rem;
+    overflow: hidden;
+}
+/* 
+ul.ui-autocomplete{
+    font-family: "Source Sans Pro", sans-serif;
+    border-radius: .2em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: solid 1px #999;
+    cursor: default;
+    li{
+        background-color: white;
+        border-top: solid 1px #DDD;
+        margin: 0;
+        padding: 0;
+        a{
+            color:#000;
+            display: block;
+            padding: 3px;
+        }
+        a.ui-state-hover, a.ui-state-active{
+            background-color:aqua;   
+        }
+    }
+    
+}
+
+.ui-helper-hidden-accessible {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+*/

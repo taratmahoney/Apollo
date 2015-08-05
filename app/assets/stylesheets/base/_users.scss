@@ -1,0 +1,21 @@
+.user-form {
+  background: url('BG2.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.user {
+  background-color: rgba(153, 153, 153, 0.6);
+  float: none;
+  @include media ($medium-screen-up){
+    width: 40%
+  }
+}
+.login-options {
+  margin-top: 2%;
+}
+.login-options a {
+  color: white;
+}

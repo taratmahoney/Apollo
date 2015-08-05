@@ -1,0 +1,7 @@
+<div class="nested-fields">
+      <div class="crowdfunding-field">
+        <p> What amounts would you like to suggest? </p>
+        <%= f.input :amounts, input_html: { class: 'form-control'} %>
+      </div>
+  <%= link_to_remove_association("- remove amount", f) %>
+</div>

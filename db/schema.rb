@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150720163357) do
+ActiveRecord::Schema.define(version: 20150805172250) do
 
   create_table "comments", force: true do |t|
     t.text     "comment"
@@ -23,6 +23,34 @@ ActiveRecord::Schema.define(version: 20150720163357) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "crowdfundings", force: true do |t|
+    t.float    "amounts"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "post_id"
+  end
+
+  create_table "feedbacks", force: true do |t|
+    t.string   "question"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "post_id"
+  end
+
+  create_table "ideas", force: true do |t|
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "post_id"
+  end
+
+  create_table "options", force: true do |t|
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "feedback_id"
+  end
 
   create_table "pins", force: true do |t|
     t.string   "title"
