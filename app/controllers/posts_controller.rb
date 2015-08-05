@@ -31,7 +31,6 @@ class PostsController < ApplicationController
         @post.feedbacks.build
         @post.ideas.build
         @post.crowdfundings.build
-        @post.feedbacks.options.build
     end
     
     def create
