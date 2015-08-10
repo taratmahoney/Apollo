@@ -1,4 +1,5 @@
 $(document).on('ready page:load', function() {
+  console.log("Im loaded")
   $('.red').on('click', function(e) {
     e.preventDefault();
     e.stopPropagation();
