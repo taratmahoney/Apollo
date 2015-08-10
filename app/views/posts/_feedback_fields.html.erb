@@ -1,15 +1,7 @@
 <div class="nested-fields">
       <div class="feedback-field">
-        <%= f.input :question, input_html: { class: 'form-control'} %>
+        <%= f.input :option, input_html: { class: 'form-control'} %>
       </div>
-  <%= link_to_remove_association("- remove question", f) %>
-          
-          <div class="options">
-          <%= f.fields_for :options do |options_form| %>
-              <%= render 'option_fields', f: options_form %>
-           <% end %>
-              <div class="add-option">
-                <%= link_to_add_association '+ add option', f, :options %>
-              </div>
-          </div>
+  <%= link_to_remove_association("- remove option", f) %>
+  
 </div>

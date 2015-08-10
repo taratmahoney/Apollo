@@ -1,4 +1,16 @@
   <div class="filter-container">
+       <div class="search">
+              <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+                <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+                <%= submit_tag "Search" %>
+                <% if @posts.present? == false %>
+                  <p>
+                    There are no posts containing the term(s) 
+                    <%= params[:search] %>
+                  </p>
+                <% end %>
+              <% end %>
+            </div>
     <ul class="filters">
      <li><a> Most Popular</a></li>
      <li><a> Most Recent </a></li>
@@ -8,44 +20,42 @@
   
 <div class="posts">
   <% @posts.each do |post| %>
-   
-      <div class="box">
-         <div class="overlay 
-        
-          <% if post.feedbacks.present? %>
-            red
-          <% elsif post.ideas.present? %>
-            blue
-          <% else %>
-            yellow
-          <% end %>
-          ">
-          </div>
+    <div class="box">
+        <div class="overlay 
+          
+            <% if post.feedbacks.present? %>
+              red
+            <% elsif post.ideas.present? %>
+              blue
+            <% else %>
+              yellow
+            <% end %>
+            ">
+        </div>
+            
           
         <div class ="post-image">
-
-            <% if post.image.url %>
-              <%= link_to (image_tag post.image.url), post %>
-            <% else %>
-              <%= image_tag("BG2.jpg") %>
-            <% end %>
+              <% if post.image.url %>
+                <%= link_to (image_tag post.image.url), post %>
+              <% else %>
+                <%= image_tag("BG2.jpg") %>
+              <% end %>
         </div>
+          
         <div class="panel-body">
-          <h4 class="title">
-            <%= link_to post.title, post %>
-          </h4>
-      
-          <div class="details">
-              <p class="date"></p>
-              Published at
-              <%= time_ago_in_words(post.created_at) %>
-              by
-              <%= post.user.email %>
-              <br/>
-              <p class="tags"></p>
-              <%= link_to raw post.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %>
-          </div>
+            <h4 class="title">
+              <%= link_to post.title, post %>
+            </h4>
+            <div class="details">
+                <p class="date">
+                by
+                <%= post.user.firstname %> <%= post.user.lastname %>
+                </p>
+                <br/>
+                <p class="tags"></p>
+                <%= link_to raw post.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %>
+            </div>
         </div>
-      </div>
-    <% end %>
+    </div>
+  <% end %>
 </div>

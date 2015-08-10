@@ -1,0 +1,11 @@
+<div class="container">
+        <h1>Edit Post</h1>
+      </div>
+      <div class="panel-body">
+        <strong class="center">Current Image</strong>
+        <br/>
+        <%= image_tag @post.image.url(:medium) %>
+        <br/>
+        <%= render 'form'  %>
+        <%= link_to "Cancel", post_path %>
+</div>

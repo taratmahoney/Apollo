@@ -18,52 +18,13 @@ nav {
                 max-width: 10rem;
                 height:auto;
               }
-    }
-    input{
-        margin-top: 5%;
-        color: black;
-        letter-spacing: 1.2;
-        border: none;
-        height: 100%;
-        padding: none;
-       
+          }
 
-    }
-    input[type="submit"]{
-        //color:#397CAC;
-        // border:1px solid #397CAC;
-        //padding between text and the border, x and y
-        padding: .3em 1em;
-        //curvy corners of button
-        border-radius: 0.2em;
-        //removes the line under the link
-        text-decoration: none;
-        display: inline;
-        padding: none;
-        height: 100%;
-
-    }
-    .search{
-        display: none;
-        color:gray;
-        background-color: white;
-        transition: left 0.5s $ease-out-sine;
-        padding: 5%;
-        height: 100%;
-        width: 100%;
-
-        &.is-clicked {
-            display: block;
-
-        }
-    }
 }
 
 .navbar-right {
-    display: inline-block;
-    padding: 2%;
     float: right;
-    overflow: hidden;
+    padding: 1% 2% 0% 0%;
 }
 
 nav li { 

@@ -8,7 +8,12 @@
       <div class="post-page-body">
         <h1>
           <%= @post.title %>
-        </h1>
+        </h1> <%= link_to like_post_path(@post), method: :put, class: "btn btn-default" do %>
+                  <span class="glyphicon glyphicon-heart">
+                    ^ <%= @post.get_upvotes.size %>
+                  </span> 
+                  <br/>
+                <% end %>
         <p class="description">
           <%= @post.content %>
         </p>
@@ -19,8 +24,8 @@
 
           <% elsif @post.feedbacks.present? %>
               <% @post.feedbacks.each do |feedback| %>
-                <p><%= feedback.question %></p>
-                <h3> Polling tools coming soon! </h3>
+                <p><%= feedback.option %></p>
+                <h4> Polling tools coming soon! </h4>
               <% end %>
 
           <% elsif @post.crowdfundings.present? %>
@@ -39,22 +44,15 @@
               Tags:
               <%= raw @post.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %>
             </div>
-            <div class="col-md-6">
-              <div class="btn-group pull-right">
-                <%= link_to like_post_path(@post), method: :put, class: "btn btn-default" do %>
-                  <span class="glyphicon glyphicon-heart">
-                    <%= @post.get_upvotes.size %>
-                  </span>
-                <% end %>
+         
+
                 <% if  @post.user == current_user && user_signed_in? %>
                   <%= link_to "Edit", edit_post_path(@post), class: "btn btn-default" %>
                   <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to do this?"}, class: "btn btn-default" %>
                 <% end %>
-              </div>
-            </div>
+             
           </div>
           <div class="row">
-            <div class="col-md-6">
               <div id="comments">
                 <h2></h2>
                 <br/>

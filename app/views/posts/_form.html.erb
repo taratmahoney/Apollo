@@ -1,12 +1,17 @@
 <!--partial that renders the form -->
 
-<div class="left-panel">
+<div class="form-container">
+  <h4> Which type of project do you want to submit? </h4>
+    <div class="buttons">
+      <button class="red"> Feedback on an idea</button>
+      <button class="yellow"> Crowdfunding Campaign</button>
+      <button class="blue"> Help with a Task </button>
+    </div>
   <%= simple_form_for @post, html: {multipart: true} do |f| %>
     <% if @post.errors.any? %>
       <div id="errors">
-        <h2></h2>
-        <%= pluralize(@post.errors.count, "error") %>
-        prevented this post from saving
+        <p><%= pluralize(@post.errors.count, "error") %>
+        prevented this post from saving:</p>
         <ul>
           <% @post.errors.full_messages.each do |msg| %>
             <li>
@@ -16,50 +21,71 @@
         </ul>
       </div>
     <% end %>
-    <p></p>
-    <div class="form-group">
-      <%= f.input :title, input_html: { class: 'form-control' } %>
-    </div>
-    <div class="form-group">
-      <%= f.input :image, input_html: { class: 'form-control' } %>
-    </div>
-    <div class="form-group">
-      
-      <%= f.input :content, input_html: { class: 'form-control'} %>
-    </div>
-    <div class="form-group">
-      <% @tagArray = Array.new %>
-      <% Post.tag_counts.each do |x| @tagArray.push(x.name) end %>
-      <%= f.input :tag_list, label: "Tags (separated by commas)", input_html: { data: {autocomplete_source: @tagArray}, class: 'form-control' } %>
-    </div>
 
-   <h4> Which type of project do you want to submit? </h4>
-    <div class="buttons">
-      <button class="red"> Feedback</button>
-      <button class="yellow">Equity Crowdfunding</button>
-      <button class="blue"> Idea </button>
-    </div>
-</div>
-<div class="right-panel">
-     <div class="idea">
-        <h4> What's the idea you want to pitch to the apollo community?</h4>
+    <div class="idea">
+     <div class="overlay blue"> </div>
+          <div class="form-group">
+            <%= f.input :title, label: "What's the idea you want to pitch to the apollo community?",input_html: { class: 'form-control' } %>
+          </div>
+          <div class="form-group">
+            <%= f.input :image, input_html: { class: 'form-control' } %>
+          </div>
+          <div class="form-group">
+           <%= f.input :content, label: "Tell us a bit more about this idea:", input_html: { class: 'form-control'} %>
+          </div>
+        
           <%= f.fields_for :ideas do |ideas_form| %>
             <%= render 'idea_fields', f: ideas_form %>
           <% end %>
               <div class="add-idea">
                 <%= link_to_add_association '+ add idea attribute', f, :ideas %>
               </div>
-      </div>
-      <div class="feedback">
-        <h4>What is the question you want to ask the apollo community?</h4>
+          <div class="form-group">
+            <% @tagArray = Array.new %>
+            <% Post.tag_counts.each do |x| @tagArray.push(x.name) end %>
+            <%= f.input :tag_list, label: "Tags (separated by commas)", input_html: { data: {autocomplete_source: @tagArray}, class: 'form-control' } %>
+          </div>
+           <%= f.button :submit, class: "submit-button" %>
+    </div>
+
+    <div class="feedback">
+      <div class="overlay red"> </div>
+          <div class="form-group">
+            <%= f.input :title, label: "What is the question you want to ask the apollo community?", input_html: { class: 'form-control' } %>
+          </div>
+          <div class="form-group">
+            <%= f.input :image, input_html: { class: 'form-control' } %>
+          </div>
+          <div class="form-group">
+           <%= f.input :content, label: "Give some more context if you like:", input_html: { class: 'form-control'} %>
+          </div>
+
             <%= f.fields_for :feedbacks do |feedbacks_form| %>
               <%= render 'feedback_fields', f: feedbacks_form %>
            <% end %>
               <div class="add-idea">
-                <%= link_to_add_association '+ add answer', f, :feedbacks %>
+                <%= link_to_add_association '+ add option', f, :feedbacks %>
               </div>
-      </div>
+        <div class="form-group">
+          <% @tagArray = Array.new %>
+          <% Post.tag_counts.each do |x| @tagArray.push(x.name) end %>
+          <%= f.input :tag_list, label: "Tags (separated by commas)", input_html: { data: {autocomplete_source: @tagArray}, class: 'form-control' } %>
+        </div>
+           <%= f.button :submit, class: "submit-button" %>
+    </div>
+
       <div class="crowdfunding">
+        <div class="overlay yellow"> </div>
+          <div class="form-group">
+            <%= f.input :title, label: "Title for crowdfunding project:", input_html: { class: 'form-control' } %>
+          </div>
+          <div class="form-group">
+            <%= f.input :image, input_html: { class: 'form-control' } %>
+          </div>
+          <div class="form-group">
+           <%= f.input :content, label: "Talk about why people should fund your company here:", input_html: { class: 'form-control'} %>
+          </div>
+
         <h4>Enter suggested amounts: </h4>
             <%= f.fields_for :crowdfundings do |crowdfundings_form| %>
               <%= render 'crowdfunding_fields', f: crowdfundings_form %>
@@ -67,11 +93,16 @@
               <div class="add-idea">
                 <%= link_to_add_association '+ add amount', f, :crowdfundings %>
               </div>
+
+          <div class="form-group">
+            <% @tagArray = Array.new %>
+            <% Post.tag_counts.each do |x| @tagArray.push(x.name) end %>
+            <%= f.input :tag_list, label: "Tags (separated by commas)", input_html: { data: {autocomplete_source: @tagArray}, class: 'form-control' } %>
+          </div>
+           <%= f.button :submit, class: "submit-button" %>
       </div>
   
-    <div class="create-button">
-      <%= f.button :submit, class: "submit-button" %>
-    </div>
+    
   <% end %>
 </div>
     

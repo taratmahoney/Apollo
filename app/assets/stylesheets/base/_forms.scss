@@ -76,25 +76,20 @@ select {
   max-width: 100%;
   width: auto;
 }
+.form-container {
+  padding: 5%;
+}
 
 .left-panel {
-  background-color: $medium-gray;
+  float: left;
   padding: 5%;
-  margin: 0% 5% 5% 5%;
-    @include media($medium-screen-up){
-    float: left;
-    width: 40%
-  }
-
-  label {
-      color: white;
-  }
 }
 
 .new {
-  color: $blue;
-  margin: none;
-  padding: 5%;
+  background-color: $medium-gray;
+  color: white;
+  padding: 2% 0 2% 5%;
+
 }
 
 .form .submit-button{
@@ -113,10 +108,6 @@ select {
 
 .right-panel {
   padding: 5%;
-  @include media($medium-screen-up){
-  float: right;
-  width: 40%;
-  } 
 }
 
 .checkboxes label {

@@ -10,4 +10,10 @@ Rails.application.routes.draw do
     root 'posts#index'
     get 'new' => 'posts#new'
     get 'tags/:tag' => 'posts#index', as: :tag
+    
+    devise_scope :user do 
+        get 'login' => 'devise/_sessions#new', :as => :login
+        post 'logout' => 'devise/_sessions#destroy', :as => :logout
+    end
+
 end
