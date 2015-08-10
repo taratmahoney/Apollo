@@ -1,13 +1,10 @@
-<div class ="col-md-6 col-md-offset-3">
-    
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <div class="devise_header">
-                    <h2><%=current_user.email%>'s Profile</h2>
+
+            <div class="devise_header">
+                    <h3><%=current_user.firstname%> <%=current_user.firstname%>'s Profile</h3>
                 </div>
                 
             </div>
-            <div class ="panel-body">
+            <div class ="left-panel">
                 
             <!--accepts 2 args, a set of the tags we want to accept, here we choose the tags from Posts, with the counts attached so we know which tags are most popular. the s m l is small medium and large, for the CSS we want to use to sort through the popularity
                 
@@ -74,18 +71,18 @@
                 </div>
                 <% end %>
             </div>
-            </div>
+            
                 <div class="panel-footer">
                 
-                <h3> <%= link_to "Sign Out", destroy_user_session_path, method: :delete%></h3>
-                <h3>Cancel my account</h3>
+                <h4> <%= link_to "Sign Out", destroy_user_session_path, method: :delete%></h4>
+                <h4>Cancel my account</h4>
 
                 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
                 <%= link_to "Back", :back %>
             </div>
         </div>
-    
+    </div>
 </div>
 
 
