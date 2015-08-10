@@ -5,6 +5,17 @@
           <% image_tag("BG2.jpg") %>
         <% end %>
       </div>
+       <div class="overlay 
+          
+            <% if @post.feedbacks.present? %>
+              red
+            <% elsif @post.ideas.present? %>
+              blue
+            <% else %>
+              yellow
+            <% end %>
+            ">
+        </div>
       <div class="post-page-body">
         <h1>
           <%= @post.title %>
