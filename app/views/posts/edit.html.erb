@@ -1,11 +1,8 @@
-<div class="container">
-        <h1>Edit Post</h1>
+    <div class="new">
+
+        <h1>Edit '<%= link_to @post.title, post_path %>'</h1>
+    </div>
+       <div class="form">
+        <%= render 'form' %>
       </div>
-      <div class="panel-body">
-        <strong class="center">Current Image</strong>
-        <br/>
-        <%= image_tag @post.image.url(:medium) %>
-        <br/>
-        <%= render 'form'  %>
-        <%= link_to "Cancel", post_path %>
 </div>

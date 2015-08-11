@@ -21,24 +21,24 @@
         </ul>
       </div>
     <% end %>
-
+    <div class="form-group">
+            <%= f.input :title, label: "What do you want to do?",input_html: { class: 'form-control' } %>
+    </div>
+     <div class="form-group">
+           <%= f.input :content, label: "Talk about this idea and why people should be interested in it:", input_html: { class: 'form-control'} %>
+          </div>
     <div class="idea">
      <div class="overlay blue"> </div>
-          <div class="form-group">
-            <%= f.input :title, label: "What's the idea you want to pitch to the apollo community?",input_html: { class: 'form-control' } %>
-          </div>
+          
           <div class="form-group">
             <%= f.input :image, input_html: { class: 'form-control' } %>
-          </div>
-          <div class="form-group">
-           <%= f.input :content, label: "Tell us a bit more about this idea:", input_html: { class: 'form-control'} %>
           </div>
         
           <%= f.fields_for :ideas do |ideas_form| %>
             <%= render 'idea_fields', f: ideas_form %>
           <% end %>
               <div class="add-idea">
-                <%= link_to_add_association '+ add idea attribute', f, :ideas %>
+                <%= link_to_add_association '+ add task', f, :ideas %>
               </div>
           <div class="form-group">
             <% @tagArray = Array.new %>
@@ -51,15 +51,9 @@
     <div class="feedback">
       <div class="overlay red"> </div>
           <div class="form-group">
-            <%= f.input :title, label: "What is the question you want to ask the apollo community?", input_html: { class: 'form-control' } %>
-          </div>
-          <div class="form-group">
             <%= f.input :image, input_html: { class: 'form-control' } %>
           </div>
-          <div class="form-group">
-           <%= f.input :content, label: "Give some more context if you like:", input_html: { class: 'form-control'} %>
-          </div>
-
+         
             <%= f.fields_for :feedbacks do |feedbacks_form| %>
               <%= render 'feedback_fields', f: feedbacks_form %>
            <% end %>
@@ -76,14 +70,9 @@
 
       <div class="crowdfunding">
         <div class="overlay yellow"> </div>
-          <div class="form-group">
-            <%= f.input :title, label: "Title for crowdfunding project:", input_html: { class: 'form-control' } %>
-          </div>
+         
           <div class="form-group">
             <%= f.input :image, input_html: { class: 'form-control' } %>
-          </div>
-          <div class="form-group">
-           <%= f.input :content, label: "Talk about why people should fund your company here:", input_html: { class: 'form-control'} %>
           </div>
 
         <h4>Enter suggested amounts: </h4>
