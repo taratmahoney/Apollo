@@ -64,7 +64,9 @@ input{
 
     }
     .search{
-        
+        display: none;
+
+        @include media($medium-screen-up){
         color:gray;
         background-color: white;
         display: inline;
@@ -72,6 +74,7 @@ input{
         p {
         display: inline;
         }
+    }
     }
 #search-form {
     width: 20%;

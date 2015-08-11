@@ -79,7 +79,7 @@ class PostsController < ApplicationController
     end
     
     def post_params
-        params.require(:post).permit(:id, :title, :content, :image, :tag_list, feedbacks_attributes: [:id, :question, :_destroy], crowdfundings_attributes: [:id, :amount, :_destroy], ideas_attributes: [:id, :content, :_destroy])
+        params.require(:post).permit(:id, :title, :content, :image, :tag_list, feedbacks_attributes: [:id, :option, :_destroy], crowdfundings_attributes: [:id, :amount, :_destroy], ideas_attributes: [:id, :content, :_destroy])
     end
 end
 

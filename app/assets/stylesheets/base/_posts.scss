@@ -192,6 +192,12 @@ button {
   padding: 2% 0 2% 5%;
 }
 
+.search-mobile {
+  width: 70%;
+  @include media($medium-screen-up){
+    display: none;
+  }
+}
 /* 
 ul.ui-autocomplete{
     font-family: "Source Sans Pro", sans-serif;
