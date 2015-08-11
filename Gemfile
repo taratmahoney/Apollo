@@ -56,6 +56,9 @@ gem 'paperclip', '~> 4.3.0'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts-as-taggable-on', '~> 3.5.0'
 gem "cocoon"
+gem 'passenger'
+gem 'aws-sdk', '< 2.0'
+gem 'figaro'
 group :production do
   gem 'rails_12factor'
 end
