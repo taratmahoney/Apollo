@@ -2,7 +2,7 @@
         <% if @post.image.url %>
           <%= image_tag @post.image.url %>
         <% else %>
-          <% image_tag("BG2.jpg") %>
+          <% image_tag("/assets/images/BG2.jpg") %>
         <% end %>
       </div>
        <div class="overlay 
@@ -41,7 +41,7 @@
 
           <% elsif @post.crowdfundings.present? %>
               <% @post.crowdfundings.each do |crowdfunding| %>
-                <p>$<%= crowdfunding.amounts %></p>
+                <p>$<%= crowdfunding.amount %></p>
               <% end %>
           <% end %>
          
@@ -50,7 +50,7 @@
             <div class="col-md-6">
               <p class="user"></p>
               Submitted by
-              <%= @post.user.email %>
+              <%= @post.user.firstname %> <%= @post.user.lastname %>
               <br/>
               Tags:
               <%= raw @post.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %>

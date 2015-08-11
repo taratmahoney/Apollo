@@ -180,34 +180,17 @@ button {
   padding: 3% 15%;
 }
 
-input{
-        color: black;
-        letter-spacing: 1.2;
-        border: none;
-        padding: none;
-       
+.form-new h4 {
+  color: $light-gray;
+}
 
-    }
-    input[type="submit"]{
-        //color:#397CAC;
-        // border:1px solid #397CAC;
-        //padding between text and the border, x and y
-        padding: .3em 1em;
-        //curvy corners of button
-        border-radius: 0.2em;
-        //removes the line under the link
-        text-decoration: none;
-        display: inline;
-        padding: none;
-        
+.new h1, h2 {
+  color: $light-gray;
 
-    }
-    .search{
-        
-        color:gray;
-        background-color: white;
-        padding: 5% 0%;
-    }
+}
+.new {
+  padding: 2% 0 2% 5%;
+}
 
 /* 
 ul.ui-autocomplete{

@@ -1,5 +1,6 @@
-$(document).on('ready page:load', function() {
-  console.log("Im loaded")
+var ready;
+ready = function() {
+
   $('.red').on('click', function(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -18,4 +19,7 @@ $(document).on('ready page:load', function() {
     $(this).add('.idea').toggleClass('clicked');
     console.log("Done")
   });
-});
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

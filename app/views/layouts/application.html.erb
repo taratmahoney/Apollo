@@ -15,14 +15,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav class="navbar">
+  <div id="page">
+    <nav class="navbar">
+
     <div class="container">
       <div class="navbar-brand">
         <%= link_to image_tag( "HLogoGrey.png"), root_path %>
       </div>
-      <% if user_signed_in? %>
+
+      
        
         <ul class="nav navbar-nav navbar-right"> 
+         <li><div class="search">
+              <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+                <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+                <%= submit_tag "Search" %>
+                <% if @posts.present? == false %>
+                  <p>
+                    There are no posts containing the term(s) 
+                    <%= params[:search] %>
+                  </p>
+                <% end %>
+              <% end %>
+            </div>
+          </li>
+            <% if user_signed_in? %>
 
               <li>
               <%= link_to " + New Post", new_post_path %>
@@ -30,10 +47,9 @@
               <li>
               <%= link_to "Account", edit_user_registration_path %>
               </li>
-        </ul>
             
-      <% else %>
-        <ul class="nav navbar-nav navbar-right">
+            <% else %>
+    
           <li>
             <%= link_to "Sign in", new_user_session_path %>
           </li>
@@ -70,7 +86,7 @@
     <footer>
       <div class="footer-link-container">
       <div class="social-icons">
-        <h4> Follow us on social media: </h4> <br/>
+        <h4> Follow us on social media: </h4>
           <%= image_tag("facebook.png")%>  
           <%= image_tag("twitter.png")%>  
           <%= image_tag("instagram.png")%>        
@@ -102,4 +118,5 @@
       </div>
     </footer>
   </div>
+</div>
 </body>

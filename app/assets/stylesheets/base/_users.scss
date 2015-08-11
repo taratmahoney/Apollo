@@ -7,15 +7,25 @@
 }
 
 .user {
-  background-color: rgba(153, 153, 153, 0.6);
   float: none;
+  margin-bottom: none;
+  margin: 0 auto;
   @include media ($medium-screen-up){
     width: 40%
+  }
+
+  label, h2 {
+    color: white;
+  }
+
+  h2{
+    text-align: center;
   }
 }
 .login-options {
   margin-top: 2%;
 }
-.login-options a {
+.login-options a, h4 {
   color: white;
+  font-weight: 700;
 }
