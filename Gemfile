@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.0.0'
 gem 'bourbon'
 gem 'neat'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

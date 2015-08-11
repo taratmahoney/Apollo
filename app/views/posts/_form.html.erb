@@ -1,13 +1,13 @@
 <!--partial that renders the form -->
 
 <div class="form-new">
-  <p> Which type of project do you want to submit? <p>
+  <p> Which type of project do you want to submit? </p>
     <div class="buttons">
       <button class="red"> Feedback on an idea</button>
       <button class="yellow"> Crowdfunding Campaign</button>
       <button class="blue"> Help with a Task </button>
     </div>
-  <%= simple_form_for (@post, html: { class: "directUpload" multipart: true})do |f| %>
+  <%= simple_form_for @post, html: {multipart: true} do |f| %>
     <% if @post.errors.any? %>
       <div id="errors">
         <p><%= pluralize(@post.errors.count, "error") %>
