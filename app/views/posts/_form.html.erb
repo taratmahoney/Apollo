@@ -7,7 +7,7 @@
       <button class="yellow"> Crowdfunding Campaign</button>
       <button class="blue"> Help with a Task </button>
     </div>
-  <%= simple_form_for(@post, html: { class: "directUpload"}) do |f| %>
+  <%= simple_form_for (@post, html: { class: "directUpload" multipart: true})do |f| %>
     <% if @post.errors.any? %>
       <div id="errors">
         <p><%= pluralize(@post.errors.count, "error") %>
@@ -31,7 +31,7 @@
      <div class="overlay blue"> </div>
           
           <div class="form-group">
-            <%= f.file_field :image, label: "Image", input_html: { class: 'form-control' } %>
+            <%= f.input :image, input_html: { class: 'form-control' } %>
           </div>
         
           <%= f.fields_for :ideas do |ideas_form| %>
@@ -51,7 +51,7 @@
     <div class="feedback">
       <div class="overlay red"> </div>
           <div class="form-group">
-            <%= f.file_field :image, label: "Image", input_html: { class: 'form-control' } %>
+            <%= f.input :image, input_html: { class: 'form-control' } %>
           </div>
          
             <%= f.fields_for :feedbacks do |feedbacks_form| %>
@@ -72,7 +72,7 @@
         <div class="overlay yellow"> </div>
          
           <div class="form-group">
-            <%= f.file_field :image, label: "Image", input_html: { class: 'form-control' } %>
+            <%= f.input :image, input_html: { class: 'form-control' } %>
           </div>
 
         <h4>Enter suggested amounts: </h4>
