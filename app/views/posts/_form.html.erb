@@ -31,7 +31,7 @@
      <div class="overlay blue"> </div>
           
           <div class="form-group">
-            <%= f.file_field :image, input_html: { class: 'form-control' } %>
+            <%= f.file_field :image, label: "Image", input_html: { class: 'form-control' } %>
           </div>
         
           <%= f.fields_for :ideas do |ideas_form| %>
@@ -51,7 +51,7 @@
     <div class="feedback">
       <div class="overlay red"> </div>
           <div class="form-group">
-            <%= f.file_field :image, input_html: { class: 'form-control' } %>
+            <%= f.file_field :image, label: "Image", input_html: { class: 'form-control' } %>
           </div>
          
             <%= f.fields_for :feedbacks do |feedbacks_form| %>
@@ -72,7 +72,7 @@
         <div class="overlay yellow"> </div>
          
           <div class="form-group">
-            <%= f.file_field :image, input_html: { class: 'form-control' } %>
+            <%= f.file_field :image, label: "Image", input_html: { class: 'form-control' } %>
           </div>
 
         <h4>Enter suggested amounts: </h4>
